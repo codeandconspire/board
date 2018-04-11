@@ -1,0 +1,107 @@
+html {
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  height: 100%;
+  font-family: 'Helvetica Neue 65 Medium', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -.3px;
+  cursor: default;
+  overflow-x: hidden;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  background: #000;
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 7rem);
+}
+
+.inventory {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7rem;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  background: #999;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.item {
+  width: 5rem;
+  height: 5rem;
+  display: block;
+  margin: 0 0.5rem;
+  flex: 0 0 auto;
+}
+
+.item:last-child {
+  margin-right: 2rem;
+}
+
+.inventory.draggable-container--is-dragging .item:not(.draggable-mirror) {
+  opacity: 0;
+}
+
+.inventory.draggable-container--is-dragging {
+  background: darkred;
+}
+
+.inventory.draggable-container--over {
+  background: red;
+}
+
+.board.draggable-container--is-dragging .item:not(.draggable-mirror) {
+  opacity: 0;
+}
+
+.board.draggable-container--over {
+  outline: 10px solid green;
+  outline-offset: -10px;
+}
+
+.Sticker {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: red;
+  border-radius: 50px;
+}
