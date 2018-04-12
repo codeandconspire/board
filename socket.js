@@ -27,5 +27,8 @@ function init (server) {
     socket.on('move', function (data) {
       board.emit('move', data)
     })
+    socket.on('remove', function (data) {
+      board.emit('remove', data)
+    })
   })
 }

@@ -24,7 +24,7 @@ const sticker = new Draggable.Draggable(containers, {
   }
 })
 
-sticker.on('drag:start', function (event) {
+sticker.on('drag:out:container', function (event) {
   dragid = (new Date() % 9e6).toString(36)
   socket.emit('add', {
     id: dragid,
@@ -44,4 +44,15 @@ sticker.on('drag:move', function (event) {
       y: (event.data.sensorEvent.data.clientY / height * 100).toFixed(6)
     })
   }
+})
+
+sticker.on('drag:over:container', function (event) {
+  if (dragid) {
+    socket.emit('remove', {id: dragid})
+    dragid = null
+  }
+})
+
+sticker.on('drag:stop', function (event) {
+  dragid = null
 })

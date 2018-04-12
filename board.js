@@ -22,7 +22,14 @@ socket.on('add', function (data) {
 })
 
 socket.on('move', function (data) {
-  const item = state.stickers.find(item => item.id === data.id)
-  if (!item) return
-  item.sticker.render(data)
+  const sticker = state.stickers.find(sticker => sticker.id === data.id)
+  if (!sticker) return
+  sticker.sticker.render(data)
+})
+
+socket.on('remove', function (data) {
+  const sticker = document.getElementById(`sticker-${data.id}`)
+  if (!sticker) return
+  state.stickers = state.stickers.filter(sticker => sticker.id !== data.id)
+  sticker.parentNode.removeChild(sticker)
 })
