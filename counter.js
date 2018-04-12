@@ -10,7 +10,7 @@ module.exports = class Counter extends Component {
     this.count = count
     return html`
       <div class="Counter">
-        ${count}
+        ${count > 0 ? `${count} peeps online` : ''}
       </div>
     `
   }

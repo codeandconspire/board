@@ -1,17 +1,28 @@
 <!doctype html>
-<html lang="en-US">
-<head>
-  <title>Client</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta content="#000" name="theme-color">
-  <style id="styles"></style>
-</head>
-<body>
-  <div class="board dropzone"></div>
-  <div class="inventory dropzone">
-    <div class="item" id="cc"><img src="https://avatars0.githubusercontent.com/u/29887107?s=200&v=4" /></div>
-    <div class="item" id="daytona"><img src="https://avatars1.githubusercontent.com/u/78329?s=200&v=4" /></div>
-  </div>
-  <script id="client-bundle"></script>
-</body>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="#000" name="theme-color">
+    <style id="styles"></style>
+  </head>
+
+  <body class="View">
+    <div class="Pad js-pad"></div>
+
+    <div class="Inventory js-container">
+      <div class="Inventory-sticker js-sticker" id="cc">
+        <img class="Sticker" src="https://avatars0.githubusercontent.com/u/29887107" />
+      </div>
+        <div class="Inventory-sticker js-sticker" id="mozilla">
+          <img class="Sticker" src="https://avatars2.githubusercontent.com/u/131524" />
+        </div>
+        <div class="Inventory-sticker js-sticker" id="choo">
+          <img class="Sticker" src="https://avatars1.githubusercontent.com/u/29929674" />
+        </div>
+    </div>
+
+    <script id="client-bundle"></script>
+  </body>
 </html>

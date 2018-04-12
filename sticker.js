@@ -14,7 +14,9 @@ module.exports = class Counter extends Component {
 
   createElement (props) {
     return html`
-      <div class="Sticker" id="sticker-${props.id}" style="transform: translate(calc(${props.x}vw - 50%), calc(${props.y}vh - 50%))"></div>
+      <div class="Board-sticker" id="sticker-${props.id}" style="transform: translate(calc(${props.x}vw - 50%), calc(${props.y}vh - 50%))">
+        <div class="Sticker"></div>
+      </div>
     `
   }
 }

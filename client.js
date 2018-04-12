@@ -2,15 +2,26 @@ const Draggable = require('@shopify/draggable')
 const io = require('socket.io-client')
 
 const socket = io(`/client`)
-const board = document.querySelector('.board')
-const containers = document.querySelectorAll('.dropzone')
-let width = board.clientWidth
-let height = board.clientHeight
+const pad = document.querySelector('.js-pad')
+const containers = document.querySelectorAll('.js-container')
+let width = pad.clientWidth
+let height = pad.clientHeight
 let dragid = null
 
 const sticker = new Draggable.Draggable(containers, {
-  draggable: '.item',
-  delay: 0
+  draggable: '.js-sticker',
+  delay: 0,
+  classes: {
+    'body:dragging': 'is-dragging',
+    'container:dragging': 'is-dragging',
+    'source:dragging': 'is-draggingSource',
+    'source:placed': 'is-placedSource',
+    'container:placed': 'is-placed',
+    'draggable:over': 'is-draggingOver',
+    'container:over': 'is-draggingOver',
+    'source:original': 'is-original',
+    'mirror': 'is-mirror'
+  }
 })
 
 sticker.on('drag:start', function (event) {
@@ -24,7 +35,7 @@ sticker.on('drag:start', function (event) {
 })
 
 sticker.on('drag:move', function (event) {
-  if (event.data.sensorEvent.data.target.isSameNode(board)) {
+  if (event.data.sensorEvent.data.target.isSameNode(pad)) {
     socket.emit('move', {
       id: dragid,
       image: event.data.originalSource.id,
