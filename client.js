@@ -48,11 +48,14 @@ sticker.on('drag:move', function (event) {
 
 sticker.on('drag:over:container', function (event) {
   if (dragid) {
-    socket.emit('remove', {id: dragid})
+    socket.emit('remove', { id: dragid })
     dragid = null
   }
 })
 
 sticker.on('drag:stop', function (event) {
-  dragid = null
+  if (dragid) {
+    socket.emit('save', { id: dragid })
+    dragid = null
+  }
 })

@@ -30,5 +30,8 @@ function init (server) {
     socket.on('remove', function (data) {
       board.emit('remove', data)
     })
+    socket.on('save', function (data) {
+      board.emit('save', data)
+    })
   })
 }
