@@ -35,7 +35,8 @@ sticker.on('drag:start', function (event) {
 })
 
 sticker.on('drag:move', function (event) {
-  if (event.data.sensorEvent.data.target.isSameNode(pad)) {
+  const target = event.data.sensorEvent.data.target
+  if (target && target.isSameNode(pad)) {
     socket.emit('move', {
       id: dragid,
       image: event.data.originalSource.id,
