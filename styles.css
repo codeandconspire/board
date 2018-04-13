@@ -148,7 +148,7 @@ strong {
   -webkit-overflow-scrolling: touch;
 }
 
-.Inventory.is-dragging {
+.Inventory.is-static {
   overflow: visible;
 }
 
