@@ -52,8 +52,13 @@
  */
 
 .Sticker {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /**
@@ -122,6 +127,7 @@
   height: 16vh;
   margin: 0 2vh;
   flex: 0 0 auto;
+  position: relative;
 }
 
 .Inventory-sticker.is-draggingSource {
