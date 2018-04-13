@@ -1,6 +1,6 @@
 :root {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   font-size: 26px;
   line-height: 1.35;
@@ -17,24 +17,23 @@
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: fixed;
 }
 
 .View {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .View-message {
-  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 *,
@@ -105,7 +104,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 10vh;
+  height: 20vh;
   padding: 2vh;
   display: flex;
   align-items: center;
@@ -114,9 +113,13 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.Inventory.is-dragging {
+  overflow: visible;
+}
+
 .Inventory-sticker {
-  width: 6vh;
-  height: 6vh;
+  width: 16vh;
+  height: 16vh;
   margin: 0 2vh;
   flex: 0 0 auto;
 }

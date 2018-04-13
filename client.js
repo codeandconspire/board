@@ -8,6 +8,11 @@ let width = pad.clientWidth
 let height = pad.clientHeight
 let dragid = null
 
+// disable pinch to zoom in ios 10
+document.addEventListener('gesturestart', function (e) {
+  e.preventDefault()
+})
+
 const sticker = new Draggable.Draggable(containers, {
   draggable: '.js-sticker',
   delay: 0,
