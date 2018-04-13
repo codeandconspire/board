@@ -164,6 +164,7 @@ strong {
 .Inventory-form {
   overflow: hidden;
   border: 2px dashed #fff;
+  transition: border-radius 200ms ease;
 }
 
 .Inventory-form::after {
@@ -173,11 +174,26 @@ strong {
   text-align: center;
   transform: translate(-50%, -50%);
   font-size: 16px;
-  content: "upload photo"
+  content: "upload photo";
+  pointer-events: none;
 }
 
 .Inventory-form.is-loading {
-  background: red;
+  border-radius: 50%;
+  animation: rotate infinite 5s linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.Inventory-form.is-loading::after {
+  content: "loading! :D";
 }
 
 .Inventory-form.is-loading .Inventory-file {
@@ -191,6 +207,8 @@ strong {
   width: 100%;
   height: 100%;
   opacity: 0;
+  transform: scale(2, 4);
+  transform-origin: top left;
 }
 
 .Inventory-sticker.is-draggingSource {
