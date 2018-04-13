@@ -90,6 +90,21 @@
   will-change: none;
 }
 
+.Board-sticker--size1 {
+  width: 5vw;
+  height: 5vw;
+}
+
+.Board-sticker--size2 {
+  width: 12vw;
+  height: 12vw;
+}
+
+.Board-sticker--size3 {
+  width: 20vw;
+  height: 20vw;
+}
+
 /**
  * Counter
  */

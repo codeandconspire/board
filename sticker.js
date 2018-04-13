@@ -18,7 +18,7 @@ module.exports = class Sticker extends Component {
 
   createElement (props) {
     return html`
-      <div class="Board-sticker ${props.saved ? 'is-saved' : ''}" id="sticker-${props.id}" style="transform: translate(${props.x}vw, ${props.y}vh)">
+      <div class="Board-sticker ${props.size ? `Board-sticker--size${props.size}` : ''} ${props.saved ? 'is-saved' : ''}" id="sticker-${props.id}" style="transform: translate(${props.x}vw, ${props.y}vh)">
         <img class="Sticker" src="${props.image}">
       </div>
     `

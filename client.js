@@ -37,7 +37,7 @@ function success () {
   socket.emit('new', { src: src })
 
   const item = html`
-    <div class="Inventory-sticker js-sticker" id="${id}">
+    <div class="Inventory-sticker js-sticker" id="${id}" data-size="3">
       <img draggable="false" class="Sticker" src="${src}" />
     </div>
   `
@@ -47,7 +47,7 @@ function success () {
   setTimeout(function () {
     form.parentNode.insertBefore(item, form.nextSibling)
     form.classList.remove('is-loading')
-  }, 3000)
+  }, 1000)
 }
 
 const sticker = new Draggable.Draggable(inventory, {
@@ -72,6 +72,7 @@ sticker.on('drag:out:container', function (event) {
   socket.emit('add', {
     id: dragid,
     image: element.firstElementChild.src,
+    size: element.dataset.size,
     x: (event.data.sensorEvent.data.clientX / width * 100).toFixed(6),
     y: (event.data.sensorEvent.data.clientY / height * 100).toFixed(6)
   })
