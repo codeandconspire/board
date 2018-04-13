@@ -41,7 +41,5 @@ socket.on('save', function (data) {
   const sticker = state.stickers.temp.find(sticker => sticker.id === data.id)
   state.stickers.temp = state.stickers.temp.filter(sticker => sticker.id !== data.id)
   state.stickers.saved.push(sticker)
-  console.log(state.stickers)
-  console.log(sticker)
   sticker.sticker.render({ saved: true })
 })
