@@ -65,6 +65,20 @@
  * Board
  */
 
+.Board-instructions {
+  position: absolute;
+  top: 2vw;
+  left: 2vw;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+strong {
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 1);
+}
+
 .Board {
   position: absolute;
   top: 0;
