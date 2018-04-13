@@ -3,7 +3,7 @@ const io = require('socket.io-client')
 
 const socket = io(`/client`)
 const pad = document.querySelector('.js-pad')
-const containers = document.querySelectorAll('.js-container')
+const inventory = document.querySelector('.js-inventory')
 let width = pad.clientWidth
 let height = pad.clientHeight
 let dragid = null
@@ -13,7 +13,7 @@ document.addEventListener('gesturestart', function (e) {
   e.preventDefault()
 })
 
-const sticker = new Draggable.Draggable(containers, {
+const sticker = new Draggable.Draggable(inventory, {
   draggable: '.js-sticker',
   delay: 0,
   classes: {
