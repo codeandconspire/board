@@ -123,12 +123,36 @@
   overflow: visible;
 }
 
-.Inventory-sticker {
+.Inventory-sticker,
+.Inventory-form {
   width: 16vh;
   height: 16vh;
   margin: 0 2vh;
   flex: 0 0 auto;
   position: relative;
+}
+
+.Inventory-form {
+  overflow: hidden;
+  background: green;
+  border-radius: 10px;
+}
+
+.Inventory-form.is-loading {
+  background: red;
+}
+
+.Inventory-form.is-loading .Inventory-file {
+  display: none;
+}
+
+.Inventory-file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 .Inventory-sticker.is-draggingSource {

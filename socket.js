@@ -52,5 +52,8 @@ function init (server, state) {
     socket.on('save', function (data) {
       board.emit('save', data)
     })
+    socket.on('new', function (data) {
+      board.emit('new', data)
+    })
   })
 }

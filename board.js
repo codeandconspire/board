@@ -46,3 +46,8 @@ socket.on('save', function (data) {
   state.stickers.saved.push(sticker)
   sticker.sticker.render({ saved: true })
 })
+
+socket.on('new', function (data) {
+  const image = new window.Image(data.src)
+  console.log(image)
+})
