@@ -76,18 +76,18 @@
 }
 
 .Board-sticker {
-  width: 100px;
-  height: 100px;
+  width: 15vw;
+  height: 15vw;
   position: absolute;
-  left: 0;
   top: 0;
-  background: #fff;
-  border-radius: 50px;
-  opacity: 0.5;
+  left: 0;
+  opacity: 0.6;
+  will-change: transform;
 }
 
 .Board-sticker.is-saved {
   opacity: 1;
+  will-change: none;
 }
 
 /**
@@ -98,6 +98,7 @@
   position: absolute;
   top: 2vw;
   right: 2vw;
+  pointer-events: none;
 }
 
 /**
@@ -132,6 +133,10 @@
 
 .Inventory-sticker.is-draggingSource {
   opacity: 0;
+}
+
+.Inventory-sticker.is-mirror {
+  will-change: transform;
 }
 
 .Inventory-sticker.is-mirror > * {

@@ -30,10 +30,11 @@ const sticker = new Draggable.Draggable(inventory, {
 })
 
 sticker.on('drag:out:container', function (event) {
+  const element = document.getElementById(event.data.originalSource.id)
   dragid = (new Date() % 9e6).toString(36)
   socket.emit('add', {
     id: dragid,
-    image: event.data.originalSource.id,
+    image: element.firstElementChild.src,
     x: (event.data.sensorEvent.data.clientX / width * 100).toFixed(6),
     y: (event.data.sensorEvent.data.clientY / height * 100).toFixed(6)
   })
@@ -44,7 +45,6 @@ sticker.on('drag:move', function (event) {
   if (target && target.isSameNode(pad)) {
     socket.emit('move', {
       id: dragid,
-      image: event.data.originalSource.id,
       x: (event.data.sensorEvent.data.clientX / width * 100).toFixed(6),
       y: (event.data.sensorEvent.data.clientY / height * 100).toFixed(6)
     })

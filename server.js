@@ -17,36 +17,42 @@ client.add(path.join(__dirname, '/client.js'))
 if (process.env.NODE_ENV !== 'development') client.plugin(tinyify)
 incremental(client)
 
+const state = {
+  clients: 0,
+  boards: 0
+}
+
 const server = http.createServer(function (req, res) {
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/html')
 
   switch (req.url) {
     case '/': {
-      fs.createReadStream('./client.html').pipe(document()).pipe(res)
+      fs.createReadStream('./client.html').pipe(document(state)).pipe(res)
       break
     }
     case '/board': {
-      fs.createReadStream('./board.html').pipe(document()).pipe(res)
+      fs.createReadStream('./board.html').pipe(document(state)).pipe(res)
       break
     }
     default: {
       res.statusCode = 404
-      fs.createReadStream('./404.html').pipe(document()).pipe(res)
+      fs.createReadStream('./404.html').pipe(document(state)).pipe(res)
     }
   }
 })
 
-socket(server)
+socket(server, state)
 
 server.listen(process.env.PORT || 3000, function () {
   console.info(`☞  http://localhost:${process.env.PORT || 3000}`)
 })
 
-function document () {
+function document (state) {
   return hyperstream({
     '#board-bundle': board.bundle(),
     '#client-bundle': client.bundle(),
+    '#state': `window.initialState = ${JSON.stringify(state)}`,
     '#styles': fs.createReadStream(path.join(__dirname, '/styles.css'))
   })
 }

@@ -3,19 +3,22 @@ const Counter = require('./counter')
 const Sticker = require('./sticker')
 
 const socket = io(`/board`)
-const state = {
-  users: 0,
+const state = Object.assign({
+  clients: 0,
   stickers: {
     temp: [],
     saved: []
   }
-}
-
-const counter = new Counter()
-document.body.appendChild(counter.render())
-socket.on('join', function () {
-  state.users += 1
-  counter.render(state.users)
+}, window.initialState)
+const counter = new Counter('Peeps online')
+document.body.appendChild(counter.render(state.clients))
+socket.on('client:join', function () {
+  state.clients += 1
+  counter.render(state.clients)
+})
+socket.on('client:leave', function () {
+  state.clients -= 1
+  counter.render(state.clients)
 })
 
 socket.on('add', function (data) {
