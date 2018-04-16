@@ -89,6 +89,15 @@ strong {
   outline-offset: -4px;
 }
 
+.Board-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50vw;
+  height: auto;
+}
+
 .Board-sticker {
   width: 15vw;
   height: 15vw;
@@ -139,12 +148,11 @@ strong {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 18vh;
+  height: 22%;
   padding: 1vh;
   display: flex;
   align-items: center;
   overflow-x: scroll;
-  background: black;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -234,7 +242,7 @@ strong {
   top: 0;
   left: 0;
   width: 100%;
-  height: 83vh;
+  height: 80%;
   background: #000;
   display: flex;
   flex-direction: column;
@@ -249,4 +257,5 @@ strong {
   line-height: 3;
   top: -4vh;
   position: relative;
+  pointer-events: none;
 }

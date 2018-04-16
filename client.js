@@ -50,7 +50,7 @@ function success () {
 
 const sticker = new Draggable.Draggable(inventory, {
   draggable: '.js-sticker',
-  delay: 0,
+  delay: 100,
   classes: {
     'body:dragging': 'is-dragging',
     'container:dragging': 'is-dragging',
@@ -95,19 +95,16 @@ sticker.on('drag:over:container', function (event) {
 })
 
 sticker.on('drag:stop', function (event) {
+  inventory.style.left = ''
+  inventory.classList.remove('is-static')
+
   if (dragid) {
-    inventory.style.left = ''
-    inventory.classList.remove('is-static')
     socket.emit('save', { id: dragid })
     dragid = null
   }
 })
 
 sticker.on('drag:start', function (event) {
-  if (dragid) {
-    inventory.style.left = `${inventory.scrollLeft * -1}px`
-    inventory.classList.add('is-static')
-    socket.emit('save', { id: dragid })
-    dragid = null
-  }
+  inventory.style.left = `${inventory.scrollLeft * -1}px`
+  inventory.classList.add('is-static')
 })
