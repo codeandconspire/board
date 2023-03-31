@@ -22,14 +22,15 @@ file.addEventListener('change', function (e) {
   upload(form)
 })
 
-function upload (form) {
+function upload(form) {
   const xhr = new window.XMLHttpRequest()
   xhr.onload = success
   xhr.open('post', 'https://api.cloudinary.com/v1_1/dykmd8idd/image/upload')
   xhr.send(new window.FormData(form))
 }
 
-function success () {
+function success() {
+  console.log(this.responseText)
   const response = JSON.parse(this.responseText)
   const src = `https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/${response.public_id}.${response.format}`
   const id = (new Date() % 9e6).toString(36)

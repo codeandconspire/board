@@ -5,7 +5,7 @@
   font-size: 26px;
   line-height: 1.35;
   font-weight: 500;
-  font-family: 'Helvetica Neue 65 Medium', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -.3px;
@@ -67,17 +67,20 @@
 
 .Board-instructions {
   position: absolute;
-  top: 2vw;
-  left: 2vw;
+  top: 16px;
+  left: 16px;
   pointer-events: none;
   color: rgba(255, 255, 255, 0.6);
+  width: 200px;
+  z-index: 100;
 }
 
-strong {
-  font-weight: bold;
-  text-decoration: underline;
-  color: rgba(255, 255, 255, 1);
+.Board-instructions svg {
+  width: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.6);
 }
+
 
 .Board {
   position: absolute;
@@ -87,6 +90,7 @@ strong {
   height: 100%;
   outline: 4px dashed rgba(255, 255, 255, 0.4);
   outline-offset: -4px;
+  border-radius: 13px;
 }
 
 .Board-image {
@@ -94,8 +98,8 @@ strong {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 50vw;
-  height: auto;
+  max-height: 50vw;
+  width: auto;
 }
 
 .Board-sticker {
@@ -104,28 +108,32 @@ strong {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0.6;
   will-change: transform;
+  transition: transform 50ms linear;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 .Board-sticker.is-saved {
-  opacity: 1;
-  will-change: none;
+  will-change: initial;
+}
+
+.Board-sticker:not(.is-saved) .Sticker {
+  animation: wiggle 350ms 200ms ease-in-out infinite;
 }
 
 .Board-sticker--size1 {
-  width: 5vw;
-  height: 5vw;
+  width: 7vw;
+  height: 7vw;
 }
 
 .Board-sticker--size2 {
-  width: 12vw;
-  height: 12vw;
+  width: 13vw;
+  height: 13vw;
 }
 
 .Board-sticker--size3 {
-  width: 20vw;
-  height: 20vw;
+  width: 23vw;
+  height: 23vw;
 }
 
 /**
@@ -134,9 +142,12 @@ strong {
 
 .Counter {
   position: absolute;
-  top: 2vw;
-  right: 2vw;
+  bottom: 7px;
+  right: 10px;
   pointer-events: none;
+  font-size: 16px;
+  z-index: 100;
+  opacity: 0.5;
 }
 
 /**
@@ -148,8 +159,8 @@ strong {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 22%;
-  padding: 1vh;
+  height: 120px;
+  padding: 0px 7px 15px;
   display: flex;
   align-items: center;
   overflow-x: scroll;
@@ -162,46 +173,72 @@ strong {
 
 .Inventory-sticker,
 .Inventory-form {
-  width: 14vh;
-  height: 14vh;
-  margin: 0 1vh;
+  width: calc(22vw - 11px);
+  height: 78px;
+  margin: 0 8px;
   flex: 0 0 auto;
   position: relative;
 }
 
+.Inventory-sticker .Sticker {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 13px;
+}
+
 .Inventory-form {
   overflow: hidden;
-  border: 2px dashed #fff;
-  transition: border-radius 200ms ease;
+  background: #fff;
+  border-radius: 13px;
+}
+
+.Inventory-form.is-loading {
+  color: transparent;
 }
 
 .Inventory-form::after {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   text-align: center;
   transform: translate(-50%, -50%);
   font-size: 16px;
-  content: "upload photo";
+  content: "Ladda upp";
   pointer-events: none;
+  max-width: 80px;
+  line-height: 1.1;
+  color: black;
+  font-weight: 600;
 }
 
-.Inventory-form.is-loading {
+.Inventory-form:active {
+  opacity: 0.5;
+}
+
+.Inventory-form.is-loading::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  animation: rotate infinite 5s linear;
+  border: 3px solid #fff;
+  border-color: #fff #333 #333 #333;
+	animation: rotate 800ms linear infinite;
 }
 
 @keyframes rotate {
   from {
-    transform: rotate(0);
+    transform: translate(-50%, -50%) rotate(0turn);
   }
   to {
-    transform: rotate(1turn);
+    transform: translate(-50%, -50%) rotate(1turn);
   }
 }
 
 .Inventory-form.is-loading::after {
-  content: "loading! :D";
+  content: "";
 }
 
 .Inventory-form.is-loading .Inventory-file {
@@ -225,13 +262,41 @@ strong {
 
 .Inventory-sticker.is-mirror {
   will-change: transform;
+  /* transition: transform 50ms linear; */
 }
 
 .Inventory-sticker.is-mirror > * {
-  transform: scale(1.1);
+  transform: scale(1.5);
+  transform-origin: center center;
   transition: transform 150ms ease;
-  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.5));
+  will-change: transform;
+  animation: wigglelarge 350ms 200ms ease-in-out infinite;
 }
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wigglelarge {
+  0% {
+    transform: rotate(0deg) scale(1.5);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.5);
+  }
+}
+
 
 /**
  * Pad
@@ -242,20 +307,38 @@ strong {
   top: 0;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: calc(100% - 120px);
   background: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  outline: 2px dashed #fff;
-  outline-offset: -2vh;
+  outline-offset: -15px;
+}
+
+.Pad::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  border-radius: 13px;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .Pad-text {
-  font-size: 16px;
-  line-height: 3;
-  top: -4vh;
+  line-height: 1.2;
+  top: -10px;
   position: relative;
   pointer-events: none;
+  font-size: 24px;
+  font-weight: 500;
+  max-width: 300px;
+  text-align: center;
+}
+
+.Pad-text small {
+  font-size: 22px;
 }

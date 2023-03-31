@@ -1,210 +1,132 @@
 <!doctype html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Client</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta content="#000" name="theme-color">
-    <script id="state"></script>
-    <style id="styles"></style>
-  </head>
 
-  <body class="View">
-    <div class="Pad js-pad">
-      <div class="Pad-text">1. drag stuff upp here and watch the wall<br> 2. Release to place forever</div>
+<head>
+  <meta charset="utf-8">
+  <title>Upload & Conspire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content="#000" name="theme-color">
+  <script id="state"></script>
+  <style id="styles"></style>
+</head>
+
+<body class="View">
+  <div class="Pad js-pad">
+    <div class="Pad-text">Dra upp något hit och titta samtidigt på väggen</div>
+  </div>
+
+  <div class="Inventory js-inventory">
+    <form class="Inventory-form js-form">
+      <input type="hidden" name="upload_preset" value="bmqgzyfq">
+      <input class="Inventory-file js-file" type="file" accept="image/*" name="file">
+    </form>
+    <div class="Inventory-sticker js-sticker" id="heart" data-size="1">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/heart.png" />
     </div>
-
-    <div class="Inventory js-inventory">
-      <form class="Inventory-form js-form">
-        <input type="hidden" name="upload_preset" value="bmqgzyfq">
-        <input class="Inventory-file js-file" type="file" name="file">
-      </form>
-      <div class="Inventory-sticker js-sticker" id="triforce" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/triforce.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="sandwich" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/sandwich.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="rand" data-size="3">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/rand.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="posties" data-size="4">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/posties.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="polish" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/polish.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="nyan" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/nyan.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="moon" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/moon.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="trygg" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/trygg.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="moment" data-size="3">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/moment.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="meet1" data-size="3">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/meet1.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="meet2" data-size="3">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/meet2.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="meet3" data-size="3">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/meet3.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="kick" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/kick.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="heart" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/heart.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="groundhog" data-size="3">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/groundhog.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="grannsamverkan" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/grannsamverkan.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="goal13" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/goal13.svg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="fry" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/fry.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="flowers" data-size="3">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/flowers.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="fira" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/fira.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="drinkandconspire" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/drinkandconspire.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="frowning" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/frowning.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="dog" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/dog.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="diablo" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/diablo.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="developers" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/developers.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="cry" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/cry.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="choo" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/choo.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="blush" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/blush.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="august" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/august.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="arabic" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/arabic.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="apple" data-size="1">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/apple.svg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="anton" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/anton.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="amirite" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/amirite.gif" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="usa" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/usa.jpg" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="drunk" data-size="2">
-        <img draggable="false" class="Sticker" src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/drunk.jpg" />
-      </div>
-      <!-- alphabet -->
-      <div class="Inventory-sticker js-sticker" id="a" data-size="1">
-        <img draggable="false" class="Sticker" src="https://img.clipartxtras.com/a66c23be8c670af57c82f5445a627529_a-png-letter-clipart-transparent_1150-1153.png" />
-      </div>
-      <div class="Inventory-sticker js-sticker" id="b" data-size="1">
-        <img draggable="false" class="Sticker" src="http://geekgirllife.com/wp-content/uploads/2013/03/sketch-B1.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="c" data-size="1">
-        <img draggable="false" class="Sticker" src="http://pngimg.com/uploads/letter_c/letter_c_PNG51.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="d" data-size="1">
-        <img draggable="false" class="Sticker" src="http://content.mycutegraphics.com/graphics/alphabet/purple-alphabet-letter-d.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="e" data-size="1">
-        <img draggable="false" class="Sticker" src="http://www.drodd.com/images15/letter-e8.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="f" data-size="1">
-        <img draggable="false" class="Sticker" src="http://etc.usf.edu/presentations/extras/letters/varsity_letters/24/18/F-400.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="g" data-size="1">
-        <img draggable="false" class="Sticker" src="http://icons.iconarchive.com/icons/ariil/alphabet/256/Letter-G-icon.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="h" data-size="1">
-        <img draggable="false" class="Sticker" src="http://4.bp.blogspot.com/-P8nMnnHgPjQ/Tr3bgPuhd8I/AAAAAAAACOQ/tcvWp5LhOvk/s1600/CAPITAL-LETTER-H.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="i" data-size="1">
-        <img draggable="false" class="Sticker" src="http://www.drodd.com/images14/i4.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="j" data-size="1">
-        <img draggable="false" class="Sticker" src="http://etc.usf.edu/presentations/extras/letters/theme_alphabets/16/20/J-300.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="k" data-size="1">
-        <img draggable="false" class="Sticker" src="https://s-media-cache-ak0.pinimg.com/originals/e8/ac/f8/e8acf8b4cfc0328930871ccdad7e3e7f.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="l" data-size="1">
-        <img draggable="false" class="Sticker" src="http://ih0.redbubble.net/image.88525693.0362/sticker,375x360.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="m" data-size="1">
-        <img draggable="false" class="Sticker" src="http://www.drodd.com/images15/letter-m26.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="n" data-size="1">
-        <img draggable="false" class="Sticker" src="http://etc.usf.edu/presentations/extras/letters/theme_alphabets/20/24/N-300.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="o" data-size="1">
-        <img draggable="false" class="Sticker" src="http://4vector.com/i/free-vector-red-serif-o-letter-clip-art_113218_Red_Serif_O_Letter_clip_art_medium.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="p" data-size="1">
-        <img draggable="false" class="Sticker" src="http://www.drodd.com/images15/letter-p26.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="q" data-size="1">
-        <img draggable="false" class="Sticker" src="http://1.bp.blogspot.com/-jJx3jQTXmg8/Tr3bkxX3rHI/AAAAAAAACPY/CAWxyyYqCCk/s1600/CAPITAL-LETTER-Q.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="r" data-size="1">
-        <img draggable="false" class="Sticker" src="https://s-media-cache-ak0.pinimg.com/originals/3b/f0/2e/3bf02ec9cfb3a5d4e82ef549b40e5b75.jpg">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="s" data-size="1">
-        <img draggable="false" class="Sticker" src="http://4.bp.blogspot.com/-_pGPqAlQWkQ/To8b9lGHPxI/AAAAAAAAAXQ/k2BOisI_724/s1600/PNG-CAPITAL-LETTER-U-FREE-S.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="t" data-size="1">
-        <img draggable="false" class="Sticker" src="http://etc.usf.edu/presentations/extras/letters/theme_alphabets/10/30/T-400.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="u" data-size="1">
-        <img draggable="false" class="Sticker" src="http://2.bp.blogspot.com/-vS6PK5G-buY/T8cfDAEEVVI/AAAAAAAABGc/hxkCH-4XIMU/s1600/Burning-letter-U-psd26682.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="v" data-size="1">
-        <img draggable="false" class="Sticker" src="http://etc.usf.edu/presentations/extras/letters/theme_alphabets/33/32/v-400.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="w" data-size="1">
-        <img draggable="false" class="Sticker" src="http://www.urltarget.com/images800_/letter-w-lowercase-alphabet-abc-gold-gradient.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="x" data-size="1">
-        <img draggable="false" class="Sticker" src="http://www.clker.com/cliparts/c/i/R/i/U/Y/letter-x-hi.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="y" data-size="1">
-        <img draggable="false" class="Sticker" src="http://etc.usf.edu/presentations/extras/letters/theme_alphabets/24/35/y-400.png">
-      </div>
-      <div class="Inventory-sticker js-sticker" id="z" data-size="1">
-        <img draggable="false" class="Sticker" src="http://etc.usf.edu/presentations/extras/letters/varsity_letters/39/38/z-400.png">
-      </div>
+    <div class="Inventory-sticker js-sticker" id="blush" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/blush.gif" />
     </div>
+    <div class="Inventory-sticker js-sticker" id="krona" data-size="1">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/krona.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="dollar" data-size="1">
+      <img draggable="false" class="Sticker"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/dollar.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="rattigheter" data-size="2">
+      <img draggable="false" class="Sticker"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/rattigheter.png" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="cool" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src=" https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/cool.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="eyes" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/eyes.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="eye" data-size="1">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/eye.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="faces" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/faces.jpg" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="gandalf" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/gandalf.jpg" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="quiz" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/quiz.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="boomer" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/boomer.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="dance" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/dance.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="developers" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/developers.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="friends" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/friends.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="fry" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/fry.jpg" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="macka" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/macka.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="office" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/office.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="panda" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/panda.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="sailormoon" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/sailormoon.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="salad" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/salad.jpg" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="sandwich" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/sandwich.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="sosse" data-size="3">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/sosse.jpg" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="sun" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/sun.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="svamp" data-size="2">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/svamp.gif" />
+    </div>
+    <div class="Inventory-sticker js-sticker" id="triforce" data-size="1">
+      <img draggable="false" class="Sticker" loading="lazy"
+        src="https://res.cloudinary.com/dykmd8idd/image/upload/c_scale,q_auto:eco,w_600/v1523614428/board/triforce.gif" />
+    </div>
+  </div>
 
-    <script id="client-bundle"></script>
-  </body>
+  <script id="client-bundle"></script>
+</body>
+
 </html>

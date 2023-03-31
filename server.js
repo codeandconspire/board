@@ -44,8 +44,8 @@ const server = http.createServer(function (req, res) {
 
 socket(server, state)
 
-server.listen(process.env.PORT || 3000, function () {
-  console.info(`☞  http://localhost:${process.env.PORT || 3000}`)
+server.listen(process.env.PORT || 8080, function () {
+  console.info(`☞  http://localhost:${process.env.PORT || 8080}`)
 })
 
 function document (state) {

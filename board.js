@@ -10,7 +10,7 @@ const state = Object.assign({
     saved: []
   }
 }, window.initialState)
-const counter = new Counter('Peeps online')
+const counter = new Counter('online')
 document.body.appendChild(counter.render(state.clients))
 socket.on('client:join', function () {
   state.clients += 1
@@ -23,7 +23,7 @@ socket.on('client:leave', function () {
 
 socket.on('add', function (data) {
   const sticker = new Sticker('sticker-' + data.id)
-  state.stickers.temp.push(Object.assign({sticker}, data))
+  state.stickers.temp.push(Object.assign({ sticker }, data))
   document.body.appendChild(sticker.render(data))
 })
 
